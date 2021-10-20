@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{HomeController, CartController, CategoryController, DashboardController, DashboardProductController, DashboardSettingController, DashboardTransactionController, DetailController};
+use App\Http\Controllers\Admin\{CategoryController as AdminCategoryController};
 use App\Http\Controllers\Auth\RegisterController;
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +35,9 @@ Route::get('dashboard/transactions/{id}', [DashboardTransactionController::class
 Route::get('dashboard/settings', [DashboardSettingController::class, 'store'])->name('dashboard-settings-store');
 Route::get('dashboard/account', [DashboardSettingController::class, 'account'])->name('dashboard-settings-account');
 
-Route::prefix('admin')->namespace('admin')->group( function(){
+Route::prefix('admin')->group( function(){
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::resource('categories', AdminCategoryController::class);
 });
 
 
