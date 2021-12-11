@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{HomeController, CartController, CategoryController, DashboardController, DashboardProductController, DashboardSettingController, DashboardTransactionController, DetailController};
-use App\Http\Controllers\Admin\{CategoryController as AdminCategoryController};
+use App\Http\Controllers\Admin\{CategoryController as AdminCategoryController, UserController};
 use App\Http\Controllers\Auth\RegisterController;
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +37,10 @@ Route::get('dashboard/account', [DashboardSettingController::class, 'account'])-
 
 Route::prefix('admin')->group( function(){
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::resource('categories', AdminCategoryController::class);
+    Route::resources([
+        'categories' => AdminCategoryController::class,
+        'users' => UserController::class,
+    ]);
 });
 
 

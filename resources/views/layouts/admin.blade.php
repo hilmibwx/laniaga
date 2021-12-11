@@ -25,7 +25,7 @@
                         <a href="/dashboard-settings.html" class="list-group-item list-group-item-action">Products</a>
                         <a href="{{ route('categories.index') }}" class="list-group-item list-group-item-action {{ (request()->is('admin/categories*')) ? 'active' : '' }}">Categories</a>
                         <a href="/dashboard-transactions.html" class="list-group-item list-group-item-action">Transactions</a>
-                        <a href="/dashboard-account.html" class="list-group-item list-group-item-action">Users</a>
+                        <a href="{{ route('users.index') }}" class="list-group-item list-group-item-action {{ (request()->is('admin/users*')) ? 'active' : '' }}">Users</a>
                         <a href="/dashboard-account.html" class="list-group-item list-group-item-action">Sign Out</a>
                     </div>
                 </div>
