@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{HomeController, CartController, CategoryController, DashboardController, DashboardProductController, DashboardSettingController, DashboardTransactionController, DetailController};
-use App\Http\Controllers\Admin\{CategoryController as AdminCategoryController, ProductController, UserController};
+use App\Http\Controllers\Admin\{CategoryController as AdminCategoryController, GalleryController, ProductController, UserController};
 use App\Http\Controllers\Auth\RegisterController;
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +41,7 @@ Route::prefix('admin')->group( function(){
         'categories' => AdminCategoryController::class,
         'users' => UserController::class,
         'products' => ProductController::class,
+        'galleries' => GalleryController::class,
     ]);
 });
 
